@@ -1,0 +1,29 @@
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center ;
+        width: 100%;
+        flex-grow: 0;
+        text-align: center;
+        padding: 20px 10px;
+        border-radius: 10px 10px 0 0;
+        background-color: #f2f7fb;
+        color: #294054;
+        text-decoration: none;
+        &.router-link-exact-active {
+            background-color: #ffffff;
+        }
+        &-name {
+            line-height: 15px;
+        }
+        &-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+        }
+    }
+}
