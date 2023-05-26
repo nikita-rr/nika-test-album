@@ -1,5 +1,5 @@
 <template>
-  <div id="catalog" class="page-container box-shadow">
+  <div id="catalog" class="page-container">
 
   </div>
 </template>

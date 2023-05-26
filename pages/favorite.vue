@@ -1,5 +1,5 @@
 <template>
-    <div id="favorite" class="page-container box-shadow">
+    <div id="favorite" class="page-container">
   
     </div>
   </template>

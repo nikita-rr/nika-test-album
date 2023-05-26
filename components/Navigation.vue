@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation box-shadow">
+  <div class="navigation">
     <NuxtLink
       class="navigation__item"
       v-for="item in navigationItems"
