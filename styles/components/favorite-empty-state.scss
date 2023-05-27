@@ -1,0 +1,12 @@
+.favorite-empty-state {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0;
+    &__icon {
+        width: 200px;
+    }
+}
