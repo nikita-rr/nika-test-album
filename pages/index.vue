@@ -1,12 +1,12 @@
 <template>
   <div id="catalog" class="page-container">
-    <UserCollapseItem v-for="user in data" :user="user" />
+    <CatalogUser v-for="user in users" :user="user" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { IUser } from "~/interfaces/IUser";
-const { data } = await useFetch<IUser[]>(
-  "http://jsonplaceholder.typicode.com/users"
-);
+import { fetchUsers } from "~/requests/fetchUsers";
+const users = ref<IUser[]>();
+users.value = await fetchUsers();
 </script>
