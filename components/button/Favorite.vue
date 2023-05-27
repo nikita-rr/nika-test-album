@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const isActive = ref(false);
+const props = defineProps<{ isActive: boolean }>();
 </script>
 
 <template>
   <button
     class="button-favorite"
-    @click="isActive = !isActive"
-    :class="{ 'is-active': isActive }"
+    :class="{ 'is-active': props.isActive }"
   >
     <fa
       class="button-favorite__icon"

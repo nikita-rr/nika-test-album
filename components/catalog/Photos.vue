@@ -10,7 +10,7 @@
         <div class="photos__item-inner-name">
           {{ item.title }}
         </div>
-        <ButtonFavorite />
+        <ButtonFavorite :is-active="existsInFavorite(item.id)" />
       </div>
     </div>
   </div>
@@ -20,4 +20,8 @@
 import { IPhoto } from "~/interfaces/IPhoto";
 
 const props = defineProps<{ photos: IPhoto[] }>();
+
+function existsInFavorite(id: number) {
+  return false;
+}
 </script>
