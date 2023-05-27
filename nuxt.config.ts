@@ -1,9 +1,6 @@
-
 export default defineNuxtConfig({
-  css: [
-    "~/styles/_index.scss",
-    "~/styles/components/_index.scss",
-  ],
+  modules: ["@pinia/nuxt"],
+  css: ["~/styles/_index.scss", "~/styles/components/_index.scss"],
   build: {
     transpile: [
       "@fortawesome/fontawesome-svg-core",

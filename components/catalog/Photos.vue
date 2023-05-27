@@ -10,7 +10,10 @@
         <div class="photos__item-inner-name">
           {{ item.title }}
         </div>
-        <ButtonFavorite :is-active="existsInFavorite(item.id)" />
+        <ButtonFavorite
+          :is-active="favoriteStore.isExistsInFavorite(item.id)"
+          @click="onButtonFavoriteClick(item)"
+        />
       </div>
     </div>
   </div>
@@ -18,10 +21,16 @@
 
 <script setup lang="ts">
 import { IPhoto } from "~/interfaces/IPhoto";
-
+import { useFavoriteStore } from "~/store/favorite";
 const props = defineProps<{ photos: IPhoto[] }>();
 
-function existsInFavorite(id: number) {
-  return false;
+const favoriteStore = useFavoriteStore();
+
+function onButtonFavoriteClick(photo: IPhoto) {
+  if (favoriteStore.isExistsInFavorite(photo.id)) {
+    favoriteStore.removeFromFavorite(photo.id);
+  } else {
+    favoriteStore.addToFavorite(photo);
+  }
 }
 </script>
