@@ -1,0 +1,62 @@
+.photo {
+  margin: 20px;
+  &__inner {
+    cursor: pointer;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    &:hover {
+      .photo__inner-name {
+        opacity: 1;
+      }
+    }
+    &-image {
+      width: 150px;
+      display: block;
+    }
+    &-name {
+      opacity: 0;
+      position: absolute;
+      top: 0px;
+      bottom: 0px;
+      right: 0;
+      left: 0;
+      background-color: #dddddd;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: opacity 0.3s ease;
+    }
+    .button-favorite {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+  &__fullview {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0a0a0a7a;
+    z-index: 10;
+    &-button-close {
+      cursor: pointer;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      border: none;
+      background-color: transparent;
+      &-icon {
+        width: 30px;
+        color: white;
+      }
+    }
+  }
+}

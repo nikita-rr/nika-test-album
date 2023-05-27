@@ -6,10 +6,8 @@ const favoriteStore = useFavoriteStore();
 
 <template>
   <div id="favorite" class="page-container">
-    <img
-      v-for="item in favoriteStore.getFavoriteList()"
-      :src="item.thumbnailUrl"
-      :alt="item.url"
-    />
+    <div class="photos">
+      <Photo v-for="item in favoriteStore.getFavoriteList()" :photo="item" />
+    </div>
   </div>
 </template>

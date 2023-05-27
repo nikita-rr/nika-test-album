@@ -25,6 +25,10 @@ async function fetchData() {
     :title-style="{ paddingLeft: '60px' }"
     @expand="fetchData()"
   >
-    <CatalogPhotos v-if="!loading" :photos="photos" />
+    <template v-if="!loading">
+      <div class="photos">
+        <Photo v-for="item in photos" :photo="item" />
+      </div>
+    </template>
   </CollapseItem>
 </template>
