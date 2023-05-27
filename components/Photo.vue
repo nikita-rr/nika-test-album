@@ -35,18 +35,20 @@ function onButtonFavoriteClick(photo: IPhoto) {
         @click.stop="onButtonFavoriteClick(props.photo)"
       />
     </div>
-    <div class="photo__fullview" v-if="showFullView">
-      <img
-        class="photo__fullview-image"
-        :src="props.photo.url"
-        :alt="props.photo.title"
-      />
-      <button
-        class="photo__fullview-button-close"
-        @click="showFullView = false"
-      >
-        <fa class="photo__fullview-button-close-icon" icon="xmark" />
-      </button>
-    </div>
+    <Transition name="photo">
+      <div class="photo__fullview" v-if="showFullView">
+        <img
+          class="photo__fullview-image"
+          :src="props.photo.url"
+          :alt="props.photo.title"
+        />
+        <button
+          class="photo__fullview-button-close"
+          @click="showFullView = false"
+        >
+          <fa class="photo__fullview-button-close-icon" icon="xmark" />
+        </button>
+      </div>
+    </Transition>
   </div>
 </template>
