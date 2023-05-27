@@ -1,18 +1,22 @@
 .photo {
+  display: flex;
   margin: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
   &__inner {
     cursor: pointer;
     position: relative;
-    border-radius: 10px;
     overflow: hidden;
+    width: 150px;
+
     &:hover {
       .photo__inner-name {
         opacity: 1;
       }
     }
     &-image {
-      width: 150px;
       display: block;
+      border-radius: 10px;
     }
     &-name {
       opacity: 0;
@@ -28,6 +32,7 @@
       justify-content: center;
       text-align: center;
       transition: opacity 0.3s ease;
+      border-radius: 10px;
     }
     .button-favorite {
       position: absolute;

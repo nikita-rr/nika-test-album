@@ -7,7 +7,11 @@ const favoriteStore = useFavoriteStore();
 <template>
   <div id="favorite" class="page-container">
     <div class="photos">
-      <Photo v-for="item in favoriteStore.getFavoriteList()" :photo="item" />
+      <Photo v-for="item in favoriteStore.getFavoriteList()" :photo="item">
+        <template #title>
+          <span class="favorite-photo-title">{{ item.title }}</span>
+        </template>
+      </Photo>
     </div>
   </div>
 </template>

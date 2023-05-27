@@ -25,9 +25,11 @@ function onButtonFavoriteClick(photo: IPhoto) {
         :src="props.photo.thumbnailUrl"
         :alt="props.photo.title"
       />
-      <div class="photo__inner-name">
-        {{ props.photo.title }}
-      </div>
+      <slot name="title">
+        <div class="photo__inner-name">
+          {{ props.photo.title }}
+        </div>
+      </slot>
       <ButtonFavorite
         :is-active="favoriteStore.isExistsInFavorite(props.photo.id)"
         @click.stop="onButtonFavoriteClick(props.photo)"
