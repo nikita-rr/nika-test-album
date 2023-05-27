@@ -1,11 +1,17 @@
 <template>
   <div class="photos">
     <div class="photos__item" v-for="item in props.photos">
-      <img
-        class="photos__item-image"
-        :src="item.thumbnailUrl"
-        :alt="item.title"
-      />
+      <div class="photos__item-inner">
+        <img
+          class="photos__item-inner-image"
+          :src="item.thumbnailUrl"
+          :alt="item.title"
+        />
+        <div class="photos__item-inner-name">
+          {{ item.title }}
+        </div>
+        <ButtonFavorite />
+      </div>
     </div>
   </div>
 </template>
