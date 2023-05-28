@@ -1,18 +1,22 @@
 <script setup lang="ts">
+import 'vue-toast-notification/dist/theme-sugar.css';
+
 import { IPhoto } from "~/interfaces/IPhoto";
 import { useFavoriteStore } from "~/store/favorite";
+import { useToast } from "vue-toast-notification";
 
 const showFullView = ref(false);
-
+const $toast = useToast();
 const props = defineProps<{ photo: IPhoto }>();
-
 const favoriteStore = useFavoriteStore();
 
 function onButtonFavoriteClick(photo: IPhoto) {
   if (favoriteStore.isExistsInFavorite(photo.id)) {
     favoriteStore.removeFromFavorite(photo.id);
+    $toast.warning("Удалено из избранного");
   } else {
     favoriteStore.addToFavorite(photo);
+    $toast.success("Добавлено в избранное");
   }
 }
 </script>
