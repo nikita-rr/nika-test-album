@@ -35,7 +35,7 @@ function onButtonFavoriteClick(photo: IPhoto) {
         @click.stop="onButtonFavoriteClick(props.photo)"
       />
     </div>
-    <Transition name="photo">
+    <Transition name="common">
       <div class="photo__fullview" v-if="showFullView">
         <img
           class="photo__fullview-image"

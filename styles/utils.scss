@@ -13,11 +13,11 @@
 }
 
 
-.photo-enter-active,
-.photo-leave-active {
+.common-enter-active,
+.common-leave-active {
   transition: all 0.4s;
 }
-.photo-enter-from,
-.photo-leave-to {
+.common-enter-from,
+.common-leave-to {
   opacity: 0;
 }

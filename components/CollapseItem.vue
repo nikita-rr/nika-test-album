@@ -2,15 +2,21 @@
 import { StyleValue } from "vue";
 
 const isExpanded = ref(false);
-const props = defineProps<{ title: string; titleStyle?: StyleValue }>();
+const props = defineProps<{
+  title: string;
+  titleStyle?: StyleValue;
+  loading?: boolean;
+}>();
 const emit = defineEmits<{
   (e: "expand"): void;
 }>();
 
 function expandCollapse() {
-  isExpanded.value = !isExpanded.value;
-  if (isExpanded.value) {
-    emit("expand");
+  if (!props.loading) {
+    isExpanded.value = !isExpanded.value;
+    if (isExpanded.value) {
+      emit("expand");
+    }
   }
 }
 </script>
@@ -24,11 +30,16 @@ function expandCollapse() {
       :class="{ 'is-expanded': isExpanded }"
     >
       <div class="collapse-item__title-icon">
-        <fa :icon="isExpanded ? 'minus' : 'plus'" />
+        <template v-if="props.loading">
+          <fa class="collapse-item__title-icon-loader" icon="spinner" />
+        </template>
+        <template v-else>
+          <fa :icon="isExpanded ? 'minus' : 'plus'" />
+        </template>
       </div>
       <div class="collapse-item__title-text">{{ props.title }}</div>
     </div>
-    <div class="collapse-item__body" v-if="isExpanded">
+    <div class="collapse-item__body" v-if="isExpanded && !props.loading">
       <slot />
     </div>
   </div>

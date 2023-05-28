@@ -12,7 +12,10 @@ async function fetchData() {
   try {
     loading.value = true;
     photos.value = await fetchPhotos(props.album.id);
-    loading.value = false;
+    setTimeout(() => {
+      //Просто что б загрузка немного покрутилась
+      loading.value = false;
+    }, 400);
   } catch (error) {
     console.error(error);
   }
@@ -23,12 +26,11 @@ async function fetchData() {
   <CollapseItem
     :title="props.album.title"
     :title-style="{ paddingLeft: '60px' }"
+    :loading="loading"
     @expand="fetchData()"
   >
-    <template v-if="!loading">
-      <div class="photos">
-        <Photo v-for="item in photos" :photo="item" />
-      </div>
-    </template>
+    <div class="photos">
+      <Photo v-for="item in photos" :photo="item" />
+    </div>
   </CollapseItem>
 </template>
