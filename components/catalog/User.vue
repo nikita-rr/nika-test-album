@@ -28,7 +28,7 @@ async function fetchData() {
 <template>
   <CollapseItem
     :title="props.user.name"
-    :title-style="{ paddingLeft: '30px' }"
+    :title-style="{ paddingLeft: '30px', fontWeight: '600' }"
     @expand="fetchData()"
     :loading="loading"
   >
