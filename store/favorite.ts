@@ -9,7 +9,7 @@ export const useFavoriteStore = defineStore("filterStore", () => {
   const favoriteList = ref<IPhoto[]>(cookie.value || []);
 
   function getFavoriteList() {
-    return favoriteList.value;
+    return favoriteList;
   }
 
   function isExistsInFavorite(id: number) {

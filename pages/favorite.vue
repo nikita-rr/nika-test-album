@@ -3,6 +3,7 @@ import { useFavoriteStore } from "~/store/favorite";
 
 const favoriteStore = useFavoriteStore();
 const favoriteList = favoriteStore.getFavoriteList();
+
 </script>
 
 <template>
