@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { list } from "postcss";
 import { ref } from "vue";
 import { IAlbum } from "~/interfaces/IAlbum";
 import { IUser } from "~/interfaces/IUser";
@@ -27,9 +26,7 @@ async function fetchData() {
     @expand="fetchData()"
   >
     <div v-if="!loading">
-      <TransitionGroup name="list">
-        <CatalogAlbum v-for="item in albums" :album="item" :key="item.id" />
-      </TransitionGroup>
+      <CatalogAlbum v-for="item in albums" :album="item" :key="item.id" />
     </div>
   </CollapseItem>
 </template>
