@@ -8,9 +8,9 @@ const props = defineProps<{ album: IAlbum }>();
 const loading = ref(false);
 const photos = ref<IPhoto[]>([]);
 
-// Компоненты Album и User получились очень похожими, но нужно понимать что это разные сущности
+// Компоненты Album и User получились очень похожими, но нужно понимать, что это разные сущности, что бы в них было меньше кода
 // fetchData() можно поместить в CollapseItem и передавать нужную функцию из requests, а данные рисовать через slot scope.
-// Но это плохо дня расширяемости и CollapseItem в таком случае будет получится слишком перегруженым
+// Но это плохо дня расширяемости и CollapseItem в таком случае будет получатся слишком перегруженым
 async function fetchData() {
   try {
     loading.value = true;
